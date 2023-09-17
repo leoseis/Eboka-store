@@ -6,7 +6,7 @@ cdcd
 <div class="mt px-6 py-12 bg-gray-100 rounded-xl">
     <h2 class="mb-12 text =2xl text-center">Newest items</h2>
 
-    <div class="grid grid-col-3 gap-3">
+    <div class="grid grid-cols-3 gap-3">
         {% for item in items %}
       <div>
         <a href="{% url 'item:detail' item.id %}">
