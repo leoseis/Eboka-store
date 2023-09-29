@@ -3,10 +3,11 @@ from django.contrib.auth.decorators import login_required # decorator
 from django.db.models import Q 
 from .forms import NewItemForm, EditItemForm
 
-from .models import Item
+from .models import Category, Item
 
 def items (request ):
    query = request.GET.get('query', '')
+   categories = Category.objects.all()
    items = Item.objects.filter(is_sold=False)
 
    if query:
@@ -15,6 +16,7 @@ def items (request ):
    return render (request, 'item/items.html',{
       'items': items,
       'query': query,
+      'categories':categories,
    })
 
 def detail (request, pk):
