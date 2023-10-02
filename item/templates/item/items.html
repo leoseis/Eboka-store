@@ -11,17 +11,17 @@
           <button class="mt-2  py-4 px-8 text-lg bg-teal-500 text rounded-xl">Search</button>
       </form> 
 
-      <hr class="my-6">
+      <hr class="my-6"> 
 
       <p class="font-semibold"> Categories</p>
 
       <ul>
-        {% for category in categories %}
-        <li class="py-2 px-2 rounded-xl">
-          <a href="{% url 'item:items' %}?query={{ query }}&catgory={{ category.id }}"> {{ category.name }}</a>
-        </li>
-        {% endfor %}
-      </ul>
+              {% for category in categories %}
+                    <li class="py-2 px-2 rounded-xl{% if category.id == category_id %} bg-gray-200{% endif %}">
+                        <a href="{% url 'item:items' %}?query={{ query }}&category={{ category.id }}">{{ category.name }}</a>
+                    </li>
+                {% endfor %}
+       </ul>
 
 
     <div class="grid grid-cols-3 gap-3">
@@ -38,7 +38,7 @@
                </div>
              </a>  
            </div>
-       {% endfor %}
+       {% endfor %} 
    </div>
     </div>
   </div>
