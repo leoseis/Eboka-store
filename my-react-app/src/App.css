@@ -1,0 +1,24 @@
+.login-page {
+  background: linear-gradient(135deg, #74ebd5, #acb6e5);
+  min-height: 100vh;
+}
+
+.login-card {
+  background-color: #ffffffcc;
+  backdrop-filter: blur(10px);
+  border: none;
+  transition: transform 0.3s ease;
+}
+
+.login-card:hover {
+  transform: translateY(-5px);
+}
+
+.form-control-animated {
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.form-control-animated:focus {
+  box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.3);
+  transform: scale(1.02);
+}
