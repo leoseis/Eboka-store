@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 
 function Register() {
   const [form, setForm] = useState({ username: "", email: "", password: "" });
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -72,7 +73,7 @@ function Register() {
                   </Form.Group>
 
                   <Button variant="primary" type="submit" className="w-100">
-                    Register
+                    Sign Up
                   </Button>
                 </Form>
               </Card.Body>
