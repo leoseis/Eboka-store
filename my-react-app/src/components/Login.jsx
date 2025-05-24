@@ -13,17 +13,22 @@ function Login() {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const res = await axios.post("http://localhost:8000/api/login/", form);
-      localStorage.setItem("access_token", res.data.access);
-      localStorage.setItem("refresh_token", res.data.refresh);
-      alert("Login successful");
-      navigate("/home");
-    } catch (err) {
-      alert("Login failed");
-    }
-  };
+  e.preventDefault();
+  try {
+    const res = await axios.post("http://localhost:8000/api/login/", form);
+    localStorage.setItem("access_token", res.data.access);
+    localStorage.setItem("refresh_token", res.data.refresh);
+
+    // Save the username locally
+    localStorage.setItem("username", res.data.user.username);
+
+    alert(`Welcome, ${res.data.user.username}!`);
+    navigate("/home");
+  } catch (err) {
+    alert("Login failed");
+  }
+};
+
 
   return (
     <div className="login-page">
